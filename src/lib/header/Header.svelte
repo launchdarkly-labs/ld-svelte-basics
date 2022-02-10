@@ -1,11 +1,15 @@
 <script>
   import { browser } from "$app/env";
-  import * as LDClient from "launchdarkly-js-client-sdk";
+  import { getFlagValue } from "../launchdarkly/client";
 
+  let showAboutUs;
   if (browser) {
-    let client = LDClient.initialize("61409b046ca8d52601d179ef", {
-      key: "anonymous",
-    });
+    setShowAboutUs(getFlagValue("show-about-us", setShowAboutUs));
+  }
+
+  function setShowAboutUs(val) {
+    console.log("called");
+    showAboutUs = val;
   }
 </script>
 
@@ -18,9 +22,13 @@
       <li>
         <a href="/ssr">SSR</a>
       </li>
-      <li class="about">
-        <a href="/about">About Us</a>
-      </li>
+      {#await showAboutUs then showAboutUs}
+        {#if showAboutUs}
+          <li class="about">
+            <a href="/about">About Us</a>
+          </li>
+        {/if}
+      {/await}
     </ul>
   </div>
 </header>
