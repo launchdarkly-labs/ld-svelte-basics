@@ -3,7 +3,7 @@
   import * as LDClient from "launchdarkly-js-client-sdk";
 
   if (browser) {
-    var client = LDClient.initialize("61409b046ca8d52601d179ef", {
+    let client = LDClient.initialize("61409b046ca8d52601d179ef", {
       key: "anonymous",
     });
   }
