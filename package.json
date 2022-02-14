@@ -17,7 +17,9 @@
     "@fontsource/fira-mono": "^4.5.0",
     "@lukeed/uuid": "^2.0.0",
     "cookie": "^0.4.1",
+    "gray-matter": "^4.0.3",
     "launchdarkly-js-client-sdk": "^2.20.1",
-    "launchdarkly-node-server-sdk": "^6.2.3"
+    "launchdarkly-node-server-sdk": "^6.2.3",
+    "svelte-markdown": "^0.2.2"
   }
 }

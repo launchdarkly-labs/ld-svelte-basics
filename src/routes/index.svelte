@@ -7,11 +7,12 @@
       return {
         props: { posts: data.posts, featuredUsername: data.featuredUsername },
       };
-      return {
-        status: res.status,
-        error: new Error(),
-      };
     }
+
+    return {
+      status: res.status,
+      error: new Error(),
+    };
   }
 </script>
 

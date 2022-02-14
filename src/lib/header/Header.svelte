@@ -8,7 +8,6 @@
   }
 
   function setShowAboutUs(val) {
-    console.log("called");
     showAboutUs = val;
   }
 </script>
