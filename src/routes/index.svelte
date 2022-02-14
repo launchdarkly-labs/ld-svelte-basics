@@ -34,7 +34,7 @@
   <ul>
     {#each posts as post (post.id)}
       <li>
-        <a href={post.slug}>
+        <a href={`/post/${post.username}/${post.slug}`}>
           <strong>{post.title}</strong>
         </a>
         <p>{post.description}</p>

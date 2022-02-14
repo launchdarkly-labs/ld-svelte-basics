@@ -28,7 +28,7 @@
 </script>
 
 <svelte:head>
-  <title>About</title>
+  <title>{frontMatter.title}</title>
 </svelte:head>
 
 <div class="content">
