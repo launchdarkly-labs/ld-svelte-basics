@@ -3,12 +3,20 @@
   import { getFlagValue } from "../launchdarkly/client";
 
   let showAboutUs;
+  let featuredCategory;
   if (browser) {
-    setShowAboutUs(getFlagValue("show-about-us", setShowAboutUs));
+    getFlagValue("show-about-us", setShowAboutUs).then(setShowAboutUs);
+    getFlagValue("featured-category", setFeaturedCategory).then(
+      setFeaturedCategory
+    );
   }
 
   function setShowAboutUs(val) {
     showAboutUs = val;
+  }
+
+  function setFeaturedCategory(val) {
+    featuredCategory = val.charAt(0).toUpperCase() + val.slice(1);
   }
 </script>
 
@@ -19,7 +27,7 @@
         <a href="/">Home</a>
       </li>
       <li>
-        <a href="/ssr">SSR</a>
+        <a href={`/posts/${featuredCategory}`}>Posts from {featuredCategory}</a>
       </li>
       {#await showAboutUs then showAboutUs}
         {#if showAboutUs}
