@@ -29,13 +29,11 @@
       <li>
         <a href={`/posts/${featuredCategory}`}>Posts from {featuredCategory}</a>
       </li>
-      {#await showAboutUs then showAboutUs}
-        {#if showAboutUs}
-          <li class="about">
-            <a href="/about">About Us</a>
-          </li>
-        {/if}
-      {/await}
+      {#if showAboutUs}
+        <li class="about">
+          <a href="/about">About Us</a>
+        </li>
+      {/if}
     </ul>
   </div>
 </header>
