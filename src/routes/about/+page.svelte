@@ -1,5 +1,5 @@
 <script context="module">
-  import { browser, dev } from "$app/env";
+  import { browser, dev } from "$app/environment";
   import SvelteMarkdown from "svelte-markdown";
 
   export const hydrate = dev;

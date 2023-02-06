@@ -2,15 +2,15 @@ import * as LaunchDarkly from "launchdarkly-js-client-sdk";
 
 let launchDarklyClient;
 
-async function initialize(user) {
-  if (!user) {
-    user = {
+async function initialize(context) {
+  if (!context) {
+    context = {
       key: "anonymous",
     };
   }
   const client = LaunchDarkly.initialize(
     import.meta.env.VITE_LAUNCHDARKLY_SDK_CLIENT,
-    user
+    context
   );
   await client.waitForInitialization();
   return client;

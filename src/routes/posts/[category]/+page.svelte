@@ -1,26 +1,7 @@
-<script context="module">
-  export async function load({ params, fetch }) {
-    let { category } = params;
-    const res = await fetch(`/api/posts/${category}`);
-
-    if (res.ok) {
-      let posts = await res.json();
-
-      return {
-        props: { posts: posts.posts, featuredCategory: category },
-      };
-    }
-
-    return {
-      status: res.status,
-      error: new Error(),
-    };
-  }
-</script>
-
 <script>
-  export let posts;
-  export let featuredCategory;
+  export let data;
+  export let posts = data.posts;
+  export let featuredCategory = data.featuredCategory;
 </script>
 
 <svelte:head>

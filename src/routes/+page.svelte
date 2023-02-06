@@ -1,24 +1,7 @@
-<script context="module">
-  export async function load({ fetch }) {
-    const res = await fetch("/api");
-
-    if (res.ok) {
-      let data = await res.json();
-      return {
-        props: { posts: data.posts, featuredUsername: data.featuredUsername },
-      };
-    }
-
-    return {
-      status: res.status,
-      error: new Error(),
-    };
-  }
-</script>
-
 <script>
-  export let posts;
-  export let featuredUsername;
+  export let data;
+  export let posts = data.posts;
+  export let featuredUsername = data.featuredUsername;
 </script>
 
 <svelte:head>

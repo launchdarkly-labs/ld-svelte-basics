@@ -13,15 +13,15 @@ async function getClient() {
   return (launchDarklyClient = await initialize());
 }
 
-export async function getFlagValue(key, user) {
+export async function getFlagValue(key, context) {
   const client = await getClient();
   let flagValue;
 
-  if (!user) {
-    user = {
+  if (!context) {
+    context = {
       key: "anonymous",
     };
   }
-  flagValue = await client.variation(key, user, false);
+  flagValue = await client.variation(key, context, false);
   return flagValue;
 }
