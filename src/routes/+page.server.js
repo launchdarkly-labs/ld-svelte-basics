@@ -1,8 +1,9 @@
-export async function get({ params }) {
-  let { category } = params;
-  category = category.toLowerCase();
+import { getFlagValue } from "../lib/launchdarkly/ldserver.server";
+
+export async function load() {
+  const featuredUsername = await getFlagValue("featured-username");
   const response = await fetch(
-    `https://dev.to/api/articles?tag=${category}&page=1&per_page=5`
+    `https://dev.to/api/articles?username=${featuredUsername}&page=1&per_page=10`
   );
   let posts = await response.json();
 
@@ -15,8 +16,7 @@ export async function get({ params }) {
   });
 
   return {
-    body: {
-      posts: posts,
-    },
+    posts,
+    featuredUsername,
   };
 }
